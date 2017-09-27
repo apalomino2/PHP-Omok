@@ -68,8 +68,8 @@ stateless and provide the following URL:
 	
 		{"size": 15, "strategies": ["Smart", "Random"]}
 
-	Hint: Use json_encode() function to create a JSON (string)
-	representation of a PHP value or object.
+Hint: Use json_encode() function to create a JSON (string)representation 
+of a PHP value or object.
 
 	2. http://<omok-home>/new?strategy=s
 	Create a new game to play against the specified computer strategy.
@@ -86,10 +86,10 @@ stateless and provide the following URL:
      {"response": false, "reason": "Strategy not specified"}
      {"response": false, "reason": "Unknown strategy"}
 
-	Hint: Use uniqid() function to generate a unique identifier based
-	on the current time in microseconds. Use the Strategy design pattern
-	to define different strategy classes, e.g., RandomStrategy and
-	SmartStrategy [Chapter 5 of 2].
+Hint: Use uniqid() function to generate a unique identifier based on the 
+current time in microseconds. Use the Strategy design pattern to define 
+different strategy classes, e.g., RandomStrategy and SmartStrategy 
+[Chapter 5 of 2].
 
 	3. http://<omok-home>/play?pid=p&move=x,y
 	Make a move by placing a stone on the specified place (x,y) to play
@@ -97,7 +97,8 @@ stateless and provide the following URL:
 
 	A normal response will be a JSON string like:
      
-		{"response": true,
+		{
+		"response": true,
 		"ack_move": {
 			"x": 4, 
 			"y": 5, 
@@ -109,7 +110,8 @@ stateless and provide the following URL:
 			"y": 6, 
 			"isWin": false, 
 			"isDraw": false, 
-			"row": []}}
+			"row": []}
+		}
 
 	where the "ack_move" is the acknowledgement and outcome of the
 	requested player move, and the "move" is the computer move made
@@ -130,18 +132,17 @@ stateless and provide the following URL:
 		{"response": false, "reason": "Invalid x coordinate, 20"}
 		{"response": false, "reason": "Invalid y coordinate, 30"}
 
-	Hint: Define several classes to model the omok game, say, Play,
-	Board, etc. The states of some of these classes need to be stored
-	externally, e.g., a file, because the web service sessions are
-	stateless and the game state should be preserved between sessions.
+Hint: Define several classes to model the omok game, say, Play, Board, etc. The 
+states of some of these classes need to be stored externally, e.g., a file, 
+because the web service sessions are stateless and the game state should be 
+preserved between sessions.
 
-	Hint: You may use the player identifier (pid) as a file name to
-	store the game state, and the game state may be stored as or
-	restored from a JSON string; use json_encode() and json_decode()
-	functions.
+Hint: You may use the player identifier (pid) as a file name to store the game 
+state, and the game state may be stored as or restored from a JSON string; use 
+json_encode() and json_decode() functions.
 
-	Hint: Use json_decode() function to convert a JSON encoded string
-	into a PHP value or object.
+Hint: Use json_decode() function to convert a JSON encoded string into a PHP 
+value or object.
 
  ### Testing
  
