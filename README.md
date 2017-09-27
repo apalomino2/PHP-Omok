@@ -49,7 +49,7 @@ include:
 
 	6. The web service shall determine the outcome: win, loss, or draw.
 	
-#### APIs
+### APIs
 
 The web service APIs are implemented as a set of URLs as specified
 below. All communications between the web service and a client shall
@@ -144,7 +144,7 @@ json_encode() and json_decode() functions.
 Hint: Use json_decode() function to convert a JSON encoded string into a PHP 
 value or object.
 
- ### Testing
+### Testing
  
 You code should be deployed and run correctly on the class website
 at http://cs3360.cs.utep.edu. Refer to the FAQ page of the CS Tech
