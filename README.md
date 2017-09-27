@@ -60,13 +60,14 @@ strings, and all outputs to the client shall be written in
 JSON. Following the REST principles, the web service shall be
 stateless and provide the following URL:
 
-1. http://<omok-home>/info (short for .../info/ or .../info/index.php),
-   where <omok-home> is the address of your omok service typically
-   consisting of a host name and a pathname.
-   Provide game information, including the board size and available
-   computer move strategies. Below is a sample JSON output.
-
-   {"size": 15, "strategies": ["Smart", "Random"]}
+	1. http://<omok-home>/info (short for .../info/ or .../info/index.php),
+	where <omok-home> is the address of your omok service typically
+	consisting of a host name and a pathname.
+	Provide game information, including the board size and available
+	computer move strategies. Below is a sample JSON output.
+	'''java
+	{"size": 15, "strategies": ["Smart", "Random"]}
+	'''
 
    Hint: Use json_encode() function to create a JSON (string)
    representation of a PHP value or object.
