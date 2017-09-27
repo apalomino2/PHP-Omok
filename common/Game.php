@@ -23,18 +23,24 @@ class Game{
         $this->strategy = $strategy;
     }
     
-    function restore($pid){
+    static function restore($pid){
         $filename = "../files/$pid.txt";
         $handle = fopen($filename, 'rb') or die('Cannot open file:  '.$filename);
         $content = fread($handle, filesize($filename));
         fclose($handle);
         
-        $game = json_decode($content);
-        $this->board = json_decode(json_encode($game->board), TRUE);
-        $this->strategy = $game->strategy;
+        $previous = json_decode($content);
+        $instance = new self($previous->strategy);
+        $instance->board = json_decode(json_encode($previous->board), TRUE);
+        return $instance;
     }
     
     function doMove($player1, $move){
         $this->board[$move[0]][$move[1]] = ($player1)? 1 : 2;
+        $this->checkWin();
+    }
+    
+    function checkWin(){
+        echo "No one wins!-.-<br>";
     }
 }

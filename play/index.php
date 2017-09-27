@@ -15,10 +15,8 @@ if(count($uri) > 1){
 
 function makeMove($pid, $move){
     $move = explode(',', $move);
-    $game = new Game("random");
-    $game->restore($pid);
+    $game = Game::restore($pid);
     $game->doMove(TRUE, $move);
-    $game->doMove(TRUE, [5,5]);
     saveGame($pid, $game);
 }
 ?>
