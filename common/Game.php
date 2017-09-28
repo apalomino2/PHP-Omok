@@ -45,19 +45,20 @@ class Game{
     }
     
     function doMove($player1, $move){
+        // TODO check if valid move
         $this->board[$move[0]][$move[1]] = ($player1)? 1 : 2;
         // the value tells us if it was a win, draw, or neither
         $result = $this->checkWin($move);
         switch ($result){
             case 0:
                 // move didn't result in either win or draw
-                return new PlayerMove($move[0], $move[1], FALSE, FALSE);
+                return new PlayerMove($move[0], $move[1], FALSE, FALSE, array());
             case 1:
                 // move resulted in a win
-                return new PlayerMove($move[0], $move[1], TRUE, FALSE);
+                return new PlayerMove($move[0], $move[1], TRUE, FALSE, array());
             case 2:
                 // move resulted in a draw
-                return new PlayerMove($move[0], $move[1], FALSE, TRUE);
+                return new PlayerMove($move[0], $move[1], FALSE, array());
         }
     }
     

@@ -33,7 +33,7 @@ if(count($uri) > 1){
 function makeMove($pid, $move){
     // restore the saved game
     $game = Game::restore($pid);
-    // TODO 
+    // TODO check is valid move
     $ackMove = $game->doMove(TRUE, $move);
     if($ackMove->isWin || $ackMove->isDraw){
         echo json_encode(Response::withMove($ackMove));        
