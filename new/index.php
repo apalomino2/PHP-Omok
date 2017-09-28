@@ -5,17 +5,24 @@ require '../common/Game.php';
 require '../common/Response.php';
 
 $uri = explode('?', $_SERVER['REQUEST_URI']);
+// check if there's a 
 if(count($uri) > 1){
+    // get the strategy from the query aka $uri[1]
     $strategy = getParam("strategy", $uri[1]);
+    // check if the strategy is valid
     if($strategy === "smart" || $strategy === "random"){
+        // everything checks out, start a new game
         newGame($strategy);
     } elseif ($strategy){
-        echo json_encode(Response::withReason(FALSE, "Unknown strategy"));
+        // invalid strategy received
+        echo json_encode(Response::withReason("Unknown strategy"));
     } else {
-        echo json_encode(Response::withReason(FALSE, "Strategy not specified"));
+        // no strategy found in the query
+        echo json_encode(Response::withReason("Strategy not specified"));
     }
 } else {
-    echo json_encode(Response::withReason(FALSE, "Strategy not specified"));
+    // $uri did not contain a query
+    echo json_encode(Response::withReason("Strategy not specified"));
 }
 
 function newGame($strategy){
@@ -23,6 +30,6 @@ function newGame($strategy){
     $pid = "59cb50f4b9c23";
     $game = new Game($strategy);
     saveGame($pid, $game);
-    echo json_encode(Response::withPid(TRUE, $pid));
+    echo json_encode(Response::withPid($pid));
 }
 ?>
