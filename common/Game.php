@@ -1,4 +1,5 @@
 <?php
+require 'PlayerMove.php';
 class Game{
     public $board;
     public $strategy;
@@ -36,11 +37,21 @@ class Game{
     }
     
     function doMove($player1, $move){
-        $this->board[$move[0]][$move[1]] = ($player1)? 1 : 2;
-        $this->checkWin();
+        $this->board[$move[0]][$move[1]] = ($player1)? 1 : 2;         
+        $var1 = $this->checkWin($move);
+        switch ($var1){
+            case 0:
+                return new PlayerMove($move[0], $move[1], FALSE, FALSE);
+            case 1:
+                return new PlayerMove($move[0], $move[1], TRUE, FALSE);
+            case 2:
+                return new PlayerMove($move[0], $move[1], FALSE, TRUE);
+        }
     }
     
-    function checkWin(){
-        echo "No one wins!-.-<br>";
+    function checkWin($lastMove){
+        echo "Always nothing!-.-<br>";
+        return 0;
     }
 }
+?>

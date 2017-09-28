@@ -23,6 +23,6 @@ function newGame($strategy){
     $pid = "59cb50f4b9c23";
     $game = new Game($strategy);
     saveGame($pid, $game);
-    echo json_encode(array("response" => TRUE, "pid" => $pid));
+    echo json_encode(Response::withPid(TRUE, $pid));
 }
 ?>

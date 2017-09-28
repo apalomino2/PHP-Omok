@@ -1,5 +1,5 @@
 ##  CS 3360 - Design and Implementation of Programming Languages
-====
+----
 ##	PROJECT 1: WEB SCRIPTING WITH PHP
 ----
 
