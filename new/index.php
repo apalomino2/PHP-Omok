@@ -3,6 +3,7 @@
 require '../common/Common.php';
 require '../common/Game.php';
 require '../common/Response.php';
+/* USE POLYMORPHISM!!! */
 
 $uri = explode('?', $_SERVER['REQUEST_URI']);
 // check if there's a query 
