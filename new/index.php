@@ -5,7 +5,7 @@ require '../common/Game.php';
 require '../common/Response.php';
 
 $uri = explode('?', $_SERVER['REQUEST_URI']);
-// check if there's a 
+// check if there's a query 
 if(count($uri) > 1){
     // get the strategy from the query aka $uri[1]
     $strategy = getParam("strategy", $uri[1]);
