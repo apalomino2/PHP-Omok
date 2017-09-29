@@ -29,7 +29,7 @@ class Game{
         // read the file with the game
         // this is where we would check if pid is valid
         // with invalid pid, return false and handle in play/index.php
-        $filename = "../files/$pid.txt";
+        $filename = "../writable/savedGames/$pid.txt";
         $handle = fopen($filename, 'rb') or die('Cannot open file:  '.$filename);
         $content = fread($handle, filesize($filename));
         fclose($handle);

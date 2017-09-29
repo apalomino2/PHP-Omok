@@ -20,7 +20,7 @@ function getParam($toFind, $query){
 
 function saveGame($pid, $game){
     // write json version of game to a file named with pid
-    $filename = "../files/$pid.txt";
+    $filename = "../writable/savedGames/$pid.txt";
     // TODO handle the case where file isn't found with Response
     $handle = fopen($filename, 'w') or die('Cannot open file:  '.$filename);
     fwrite($handle, json_encode($game));
