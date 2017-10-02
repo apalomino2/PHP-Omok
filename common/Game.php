@@ -1,6 +1,5 @@
 <?php
 require 'PlayerMove.php';
-
 class Game{
     public $board;
     public $strategy;
@@ -58,14 +57,28 @@ class Game{
                 return new PlayerMove($move[0], $move[1], TRUE, FALSE, array());
             case 2:
                 // move resulted in a draw
-                return new PlayerMove($move[0], $move[1], FALSE, array());
+                return new PlayerMove($move[0], $move[1], FALSE, TRUE, array());
         }
     }
     
     function checkWin($lastMove){
         // needs implementation! :o
         // currently it's always nothing! -.-
-        return 0;
+        //for($i = 1; $i < 5; $i++){
+        	//if($lastMove[0]<14){
+        		//$board[0][$lastMove[0]][$lastMove[1]];
+        	//}
+        //}
+        //For loop that identifies if the game is a Draw
+        for($i = 0; $i < 15; $i++){
+        	for($j = 0; $j < 15; $j++){
+        		if($this -> board[$i][$j] === 0){
+        			return 0;
+        		} 
+        	}
+        }
+        
+        return 2;
     }
 }
 ?>
