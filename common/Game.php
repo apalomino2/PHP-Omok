@@ -115,7 +115,7 @@ class Game{
         			$count2 = 0;
         		}
         		
-        		if($this->board[$x+$i][$i] == $myMove){
+        		if($this->board[14-$x+$i][$i] == $myMove){
         			$count3++;
         			if($count3 == 5){
         				return 1;
@@ -123,7 +123,7 @@ class Game{
         		} else {
         			$count3 = 0;
         		}
-        		if($this->board[14-$x+$i][$i] == $myMove){
+        		if($this->board[$i][14-$x+$i] == $myMove){
         			$count4++;
         			if($count4 == 5){
         				return 1;
