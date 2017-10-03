@@ -69,6 +69,10 @@ class Game{
         $endIndex = ($lastMove[0]>10)? 14 : $lastMove[0]+4;
         $counth = 0;
         $countv= 0;
+        $count1 = 0;
+        $count2 = 0;
+        $count3 = 0;
+        $count4 = 0;
        
         for($i = $startIndex; $i <= $endIndex; $i++){
         	if($this->board[$i][$lastMove[1]] == $myMove){
@@ -89,6 +93,44 @@ class Game{
         		}
         	} else {
         		$countv = 0;
+        	}
+        }
+        
+        for($x = 4; $x < 15; $x++){
+        	for($i = 0; $i <= $x; $i++){
+        		if($this->board[$x-$i][$i] == $myMove){
+        			$count1++;
+        			if($count1 == 5){
+        				return 1;
+        			}
+        		} else {
+        			$count1 = 0;
+        		}
+        		if($this->board[14-$x+$i][14-$i] == $myMove){
+        			$count2++;
+        			if($count2 == 5){
+        				return 1;
+        			}
+        		} else {
+        			$count2 = 0;
+        		}
+        		
+        		if($this->board[$x+$i][$i] == $myMove){
+        			$count3++;
+        			if($count3 == 5){
+        				return 1;
+        			}
+        		} else {
+        			$count3 = 0;
+        		}
+        		if($this->board[14-$x+$i][$i] == $myMove){
+        			$count4++;
+        			if($count4 == 5){
+        				return 1;
+        			}
+        		} else {
+        			$count4 = 0;
+        		}
         	}
         }
         
