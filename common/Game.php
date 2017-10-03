@@ -64,12 +64,34 @@ class Game{
     function checkWin($lastMove){
         // needs implementation! :o
         // currently it's always nothing! -.-
-        //for($i = 1; $i < 5; $i++){
-        	//if($lastMove[0]<14){
-        		//$board[0][$lastMove[0]][$lastMove[1]];
-        	//}
-        //}
-        //For loop that identifies if the game is a Draw
+        $myMove = $this->board[$lastMove[0]][$lastMove[1]];
+        $startIndex = ($lastMove[0]<4)? 0 : $lastMove[0]-4;
+        $endIndex = ($lastMove[0]>10)? 14 : $lastMove[0]+4;
+        $counth = 0;
+        $countv= 0;
+       
+        for($i = $startIndex; $i <= $endIndex; $i++){
+        	if($this->board[$i][$lastMove[1]] == $myMove){
+        		$counth++;
+        		if($counth == 5){
+        		return 1;
+        	} }
+        	else {
+        		$counth = 0;
+        	}
+        }
+        
+        for($i = $startIndex; $i <= $endIndex; $i++){
+        	if($this->board[$lastMove[0]][$i] == $myMove){
+        		$countv++;
+        		if($countv == 5){
+        		return 1;
+        		}
+        	} else {
+        		$countv = 0;
+        	}
+        }
+        
         for($i = 0; $i < 15; $i++){
         	for($j = 0; $j < 15; $j++){
         		if($this -> board[$i][$j] === 0){
