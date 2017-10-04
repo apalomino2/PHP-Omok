@@ -17,6 +17,7 @@ if(count($uri) > 1){
 		if($move){
 			$move = explode(',', $move);
 			// convert move to integer array and make the move
+			//echo json_encode($move);
 			makeMove($pid, array((int)$move[0], (int)$move[1]));
 		}
 		else{
