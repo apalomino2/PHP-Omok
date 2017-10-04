@@ -65,8 +65,10 @@ class Game{
         // needs implementation! :o
         // currently it's always nothing! -.-
         $myMove = $this->board[$lastMove[0]][$lastMove[1]];
-        $startIndex = ($lastMove[0]<4)? 0 : $lastMove[0]-4;
-        $endIndex = ($lastMove[0]>10)? 14 : $lastMove[0]+4;
+        $startIndexH = ($lastMove[0]<4)? 0 : $lastMove[0]-4;
+        $endIndexH = ($lastMove[0]>10)? 14 : $lastMove[0]+4;
+        $startIndexV = ($lastMove[1]<4)? 0 : $lastMove[1]-4;
+        $endIndexV = ($lastMove[1]>10)? 14 : $lastMove[1]+4;
         $counth = 0;
         $countv= 0;
         $count1 = 0;
@@ -74,28 +76,32 @@ class Game{
         $count3 = 0;
         $count4 = 0;
        
-        for($i = $startIndex; $i <= $endIndex; $i++){
+        //TODO check if there is a win in horizontal of the last move in the board
+        for($i = $startIndexH; $i <= $endIndexH; $i++){
         	if($this->board[$i][$lastMove[1]] == $myMove){
         		$counth++;
         		if($counth == 5){
         		return 1;
-        	} }
+        		} 
+        	}
         	else {
         		$counth = 0;
         	}
         }
         
-        for($i = $startIndex; $i <= $endIndex; $i++){
+        //TODO checks if there is a win in the vertical of the last move on the board
+        for($i = $startIndexV; $i <= $endIndexV; $i++){
         	if($this->board[$lastMove[0]][$i] == $myMove){
         		$countv++;
         		if($countv == 5){
-        		return 1;
+        			return 1;
         		}
         	} else {
         		$countv = 0;
         	}
         }
         
+        //TODO checks if there is a win for the both diagonals for the last move
         for($x = 4; $x < 15; $x++){
         	for($i = 0; $i <= $x; $i++){
         		if($this->board[$x-$i][$i] == $myMove){
@@ -133,7 +139,7 @@ class Game{
         		}
         	}
         }
-        
+        //checks the draw of the game, if it comes to an open space, the for loops stops 
         for($i = 0; $i < 15; $i++){
         	for($j = 0; $j < 15; $j++){
         		if($this -> board[$i][$j] === 0){
