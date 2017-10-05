@@ -41,7 +41,7 @@ function makeMove($pid, $move){
 	}
 	else {
 		if($game->strategy === "random"){
-			$move = RandomStrategy::getMove(FALSE, $game->board);
+			$move = RandomStrategy::getMove($game->board);
 		}
 		else{
 			$move = SmartStrategy::getMove(FALSE, $game->board, $move);
