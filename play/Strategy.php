@@ -1,10 +1,12 @@
 <?php
 class RandomStrategy{
 	static function getMove($board){
+	    var_dump($board);
 		for(;;){
 			$move[0] = rand(0, 14);
 			$move[1] = rand(0, 14);
 			if(!$board[$move[0]][$move[1]]){
+			    var_dump($move);
 				return $move;
 			}
 		}
@@ -14,7 +16,7 @@ class RandomStrategy{
 class SmartStrategy{
 	static function getMove($bool, $board, $lastMove){
 		
-		$playerMove = $board[$lastMove[0]][$lastMove[1]];
+		$playerValue = $board[$lastMove[0]][$lastMove[1]];
 		$startIndexH= ($lastMove[0]<4)? 0 : $lastMove[0]-4;
 		$endIndexH = ($lastMove[0]>10)? 14 : $lastMove[0]+4;
 		$startIndexV = ($lastMove[1]<4)? 0 : $lastMove[1]-4;
@@ -33,7 +35,7 @@ class SmartStrategy{
 		//TODO check if there is a win in horizontal of the last move in the board
 		for($i = $startIndexH; $i < $endIndexH; $i++){
 			//echo json_encode($tempValue);
-			if($board[$i][$lastMove[1]] == $playerMove){
+			if($board[$i][$lastMove[1]] == $playerValue){
 				$counth++;
 			} else if($counth >= $temp){
 				$temp = $counth;
@@ -57,7 +59,7 @@ class SmartStrategy{
 		//TODO checks if there is a win in the vertical of the last move on the board
 		for($i = $startIndexV; $i < $endIndexV; $i++){
 			//echo json_encode($tempValue);
-			if($board[$lastMove[0]][$i] == $playerMove){
+			if($board[$lastMove[0]][$i] == $playerValue){
 				$countv++;
 			} else if($countv >= $temp){
 						$temp = $countv;
