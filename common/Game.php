@@ -58,11 +58,10 @@ class Game{
 			// move resulted in a win
 			return new PlayerMove($move[0], $move[1], TRUE, FALSE, $result);
 		}				
-	}
+		}
 	
 	
 	function checkWin($lastMove){
-	    return 0;
 		$row = array();
 		// needs implementation! :o
 		// currently it's always nothing! -.-
@@ -82,7 +81,7 @@ class Game{
 		for($i = $startIndexH; $i <= $endIndexH; $i++){
 			if($this->board[$i][$lastMove[1]] == $myMove){
 				$counth++;
-				$row[] = $i;
+				$row[] =$i;
 				$row[] = $lastMove[1];
 				if($counth == 5){
 					return $row;
@@ -93,11 +92,13 @@ class Game{
 			}
 		}
 		
+		$row = array();
+		
 		//TODO checks if there is a win in the vertical of the last move on the board
 		for($i = $startIndexV; $i <= $endIndexV; $i++){
 			if($this->board[$lastMove[0]][$i] == $myMove){
 				$countv++;
-				$row[] = $lastMove[0];
+				$row[] =$lastMove[0];
 				$row[] = $i;
 				if($countv == 5){
 					return $row;
@@ -106,6 +107,8 @@ class Game{
 				$countv = 0;
 			}
 		}
+		
+		$row = array();
 		
 		//TODO checks if there is a win for the both diagonals for the last move
 		for($x = 4; $x < 15; $x++){
