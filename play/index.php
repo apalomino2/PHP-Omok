@@ -1,5 +1,6 @@
 <?php
 // PLAY
+//Abner Palomino, Roman Martinez
 require '../common/Common.php';
 require '../common/Game.php';
 require '../common/Response.php';
