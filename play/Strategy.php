@@ -76,47 +76,10 @@ class SmartStrategy{
 					}
 				}
 			
-				/**
-			// TODO checks if there is a win for the both diagonals for the last move
-		for($x = 4; $x < 15; $x ++) {
-			for($i = 0; $i <= $x; $i ++) {
-				if ($board [$x - $i] [$i] == $playerMove) {
-					$count1 ++;
-					if ($count1 == 5) {
-						return 1;
-					}
-				} else {
-					$count1 = 0;
-				}
-				if ($board [14 - $x + $i] [14 - $i] == $playerMove) {
-					$count2 ++;
-					if ($count2 == 5) {
-						return 1;
-					}
-				} else {
-					$count2 = 0;
-				}
-				
-				if ($board [14 - $x + $i] [$i] == $playerMove) {
-					$count3 ++;
-					if ($count3 == 5) {
-						return 1;
-					}
-				} else {
-					$count3 = 0;
-				}
-				if ($board [$i] [14 - $x + $i] == $playerMove) {
-					$count4 ++;
-					if ($count4 == 5) {
-						return 1;
-					}
-				} else {
-					$count4 = 0;
-				}
-			}
-		}**/
+	
 		return $tempValue;
 	}
+	
 }
 ?>
 	
